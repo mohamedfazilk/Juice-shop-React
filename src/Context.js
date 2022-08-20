@@ -7,9 +7,18 @@ const AppContext = React.createContext();
 
 const AppProvider = ({children}) =>{
 
+    const [loading, setLoading] = useState(true);
+    const [cocktail, setCocktail] = useState([])
+    const [searchTerm, setSearchTerm] = useState('a')
+
     return(
         <AppContext.Provider 
-        value='hello'
+        value={{
+            loading,
+            cocktail,
+            searchTerm,
+            setSearchTerm()
+        }}
         >
             {children}
         </AppContext.Provider>
