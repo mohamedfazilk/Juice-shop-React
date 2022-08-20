@@ -19,9 +19,6 @@ function App() {
         <Route  path="/about" element={<About/>}/>
         <Route  path="/cocktail/:id" element={<SingleCocktail/>}/>
         <Route  path="*" element={<Error/>}/>
-         
-     
-        
       </Routes>
     </BrowserRouter>
   );
