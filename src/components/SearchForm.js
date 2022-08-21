@@ -13,13 +13,13 @@ const SearchForm = () => {
     searchValue.current.focus()
   },[])
 
-  // const handleSubmit = (e) =>{
-  //   e.preventDefault.value
-  // }
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+  }
 
   return (
     <section className='section-search'>
-      <form className='search-form' >
+      <form className='search-form' onSubmit={handleSubmit}>
         <div className="form-control">
           <label htmlFor="name">Search Your Favourite Juice</label>
           <input type="text" id='name' ref={searchValue} onChange={searchCocktail}/>
