@@ -9,9 +9,17 @@ const SearchForm = () => {
     setSearchTerm(searchValue.current.value)
   }
 
+  React.useEffect(()=>{
+    searchValue.current.focus()
+  },[])
+
+  // const handleSubmit = (e) =>{
+  //   e.preventDefault.value
+  // }
+
   return (
     <section className='section-search'>
-      <form className='search-form'>
+      <form className='search-form' >
         <div className="form-control">
           <label htmlFor="name">Search Your Favourite Juice</label>
           <input type="text" id='name' ref={searchValue} onChange={searchCocktail}/>
