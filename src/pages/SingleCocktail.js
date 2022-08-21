@@ -10,6 +10,7 @@ const SingleCocktail = () => {
   const [cocktail, setCocktail] = React.useState(null);
 
   React.useEffect(() => {
+    setLoading(true)
     async function getCocktail() {
       try {
         const response = await fetch(`${url}${id}`)
@@ -52,10 +53,12 @@ const SingleCocktail = () => {
           setCocktail(null)
         }
       }
+    
       catch (error) {
         console.log(error);
         setLoading(false)
       }
+      setLoading(false)
     }
     getCocktail();
   }, [id])
