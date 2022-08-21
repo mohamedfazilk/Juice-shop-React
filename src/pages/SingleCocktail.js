@@ -60,6 +60,14 @@ const SingleCocktail = () => {
     getCocktail();
   }, [id])
 
+  if(loading){
+    return<Loading/>
+  }
+
+  if(!cocktail){
+    return <h2 className='section-title'>No Juices to Display</h2>
+  }
+
   return (
     <div>{id}</div>
   )
