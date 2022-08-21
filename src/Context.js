@@ -16,16 +16,28 @@ const AppProvider = ({children}) =>{
             setLoading(true);
             const response = await fetch(`${url}${searchTerm}`)
             const data =  await response.json()
-            console.log(data);
+            const {drinks} = data;
+
+            if(drinks) {
+
+            }
+
+            else{
+                setCocktail([])
+            }
+            setLoading(false)
+
         }
+      
         catch(error){
             console.log(error.data);
+            setLoading(false)
         }
     }
 
     useEffect (()=>{
         fecthDrinks();
-    },[])
+    },[searchTerm])
 
     return(
         <AppContext.Provider 
