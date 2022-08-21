@@ -19,6 +19,21 @@ const SingleCocktail = () => {
       catch(error){
         console.log(error);
       }
+
+      if(data.drinks){
+        const{strDrink:name, strDrinkThumb:image, strAlcoholic:info, 
+          strCategory:category, strGlass:glass,
+        StrInstructions:instructions,
+        strIngredient1,
+        strIngredient2,
+        strIngredient3,
+        strIngredient4,
+        strIngredient5,
+      } = data.drinks[0];
+      }
+      else{
+        setCocktail(null)
+      }
     }
     getCocktail();
   }, [id])
