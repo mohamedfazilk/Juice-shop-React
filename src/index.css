@@ -297,6 +297,7 @@ Form
   text-transform: capitalize;
   border-radius: var(--mainBorderRadius);
   box-shadow: var(--lightShadow);
+  margin-top: 4rem;
 }
 
 .form-control label {

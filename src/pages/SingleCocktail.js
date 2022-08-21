@@ -58,7 +58,7 @@ const SingleCocktail = () => {
         console.log(error);
         setLoading(false)
       }
-      setLoading(false)
+        setLoading(false)
     }
     getCocktail();
   }, [id])
