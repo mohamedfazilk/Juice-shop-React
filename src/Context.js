@@ -1,60 +1,67 @@
-import React,{useState,useContext,useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 
 
 const AppContext = React.createContext();
 
-const AppProvider = ({children}) =>{
+const AppProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true);
     const [cocktail, setCocktail] = useState([])
     const [searchTerm, setSearchTerm] = useState('a')
 
-    const fecthDrinks = async () =>{
-        try{
-            setLoading(true);
+    const fecthDrinks = async () => {
+        setLoading(true);
+        try {
             const response = await fetch(`${url}${searchTerm}`)
-            const data =  await response.json()
-            const {drinks} = data;
+            const data = await response.json()
+            const { drinks } = data;
 
-            if(drinks) {
+            if (drinks) {
+                const newCocktail = drinks.map((item) => {
+                    const { idDrink,strDrink,strDrinkThumb,strAlcoholic,strGlass} = item;
+                    return {
+                        id: idDrink,
+                        name: strDrink,
+                        image: strDrinkThumb,
+                        info: strAlcoholic,
+                        glass: strGlass
+                    }
+                })
+                setCocktail(newCocktail);
 
             }
 
-            else{
+            else {
                 setCocktail([])
             }
             setLoading(false)
 
         }
-      
-        catch(error){
-            console.log(error.data);
+
+        catch (error) {
+            console.log(error);
             setLoading(false)
         }
     }
 
-    useEffect (()=>{
+    useEffect(() => {
         fecthDrinks();
-    },[searchTerm])
+    }, [searchTerm])
 
-    return(
-        <AppContext.Provider 
-        value={{
-            loading,
-            cocktail,
-            setSearchTerm
-        }}
+    return (
+        <AppContext.Provider
+        value={{ loading, cocktail, searchTerm, setSearchTerm }}
         >
             {children}
         </AppContext.Provider>
-    ) 
+    )
 }
 
 
 export const useGlobalContext = () => {
     return useContext(AppContext)
-  }
-  
-  export { AppContext, AppProvider }
+}
+
+export { AppContext, AppProvider }

@@ -5,13 +5,14 @@ import {useGlobalContext} from '../Context'
 
 const CocktailList = () => {
   const {cocktail,loading} = useGlobalContext();
+  console.log(cocktail);
   if (loading){
     return(
       <Loading/>
     )
   }
 
-  if(CocktailList.length<1){
+  if(cocktail.length<1){
     return <h2 className="section-title">No Juices matched your search criteria</h2>
   }
   return (
