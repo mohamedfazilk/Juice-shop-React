@@ -10,6 +10,10 @@ const CocktailList = () => {
       <Loading/>
     )
   }
+
+  if(CocktailList.length<1){
+    return <h2 className="section-title">No Juices matched your search criteria</h2>
+  }
   return (
     <div>
      <h2>CocktailList</h2>

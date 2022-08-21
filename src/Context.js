@@ -11,6 +11,22 @@ const AppProvider = ({children}) =>{
     const [cocktail, setCocktail] = useState([])
     const [searchTerm, setSearchTerm] = useState('a')
 
+    const fecthDrinks = async () =>{
+        try{
+            setLoading(true);
+            const response = await fetch(`${url}${searchTerm}`)
+            const data =  await response.json()
+            console.log(data);
+        }
+        catch(error){
+            console.log(error.data);
+        }
+    }
+
+    useEffect (()=>{
+        fecthDrinks();
+    },[])
+
     return(
         <AppContext.Provider 
         value={{
