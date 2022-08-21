@@ -6,10 +6,9 @@ const About = () => {
       <h1 className="section-title">About Us</h1>
       <div className="about-text">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-        Soluta et vitae praesentium ipsum! In fuga, animi, 
-        molestiae aut repudiandae ea omnis harum dolorum quaerat 
-        earum mollitia nam ex facere doloribus.
+      A juice bar that serves customers fresh-squeezed fruit juice drinks and smoothies
+       is a fantastic new business enterprise to put into action,
+        as more and more people are striving to lead healthier lifestyles.
       </p>
       </div>
      
