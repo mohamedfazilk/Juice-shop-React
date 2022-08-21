@@ -40,6 +40,15 @@ const SingleCocktail = () => {
           strIngredient4,
           strIngredient5,
         ]
+        const newCocktail = {
+          name,
+          image,
+          info,
+          category,
+          glass,
+          instructions,
+          ingredients
+        }
       }
       else {
         setCocktail(null)
