@@ -1,8 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Cocktail = () => {
+const Cocktail = ({id,name,image,info,glass}) => {
   return (
-    <div>Cocktail</div>
+    <article className='cocktail' key={id}>
+ 
+      <div className='image-container'>
+        <img src={image} alt={name} />
+      </div>
+      <div className="cocktail-footer">
+        <h3 className=''>{name}</h3>
+        <h4>{glass}</h4>
+        <p>{info}</p>
+        <Link to={`cocktail/${id}`} className='btn btn-primary btn-details'>details</Link>
+      </div>
+      
+
+    </article>
   )
 }
 
